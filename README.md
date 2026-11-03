@@ -3,6 +3,8 @@
 Serves the trained TabFormer node-prediction model behind a plain HTTP API on one V100. There's no
 Triton and no training. The model loads once at startup and scores each transaction it receives.
 
+![Fraud Monitoring Dashboard: fraud probability, decision, Shapley contributions, graph context and session history](docs/ui_dashboard.png)
+
 ```text
 POST /v1/score  {raw transaction JSON}
    │
