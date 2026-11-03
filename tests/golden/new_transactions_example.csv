@@ -1,0 +1,8 @@
+User,Card,Year,Month,Day,Time,Amount,Use Chip,Merchant Name,Merchant City,Merchant State,Zip,MCC,Errors?,Is Fraud?
+1,1,2019,5,11,14:05,$488.00,Chip Transaction,-7807051024009846392,Rome,Italy,,3684,,Yes
+1,1,2019,5,11,14:53,$14.22,Chip Transaction,9057735476014445185,Rome,Italy,,5311,,Yes
+44,0,2019,6,22,15:21,$76.00,Swipe Transaction,-5162038175624867091,Rome,Italy,,5541,,Yes
+0,0,2019,6,23,20:05,$69.17,Swipe Transaction,-1605794445852049456,La Verne,CA,91750.0,5812,,No
+3,3,2019,7,22,13:20,$56.25,Chip Transaction,7522433618679272954,New York,NY,10072.0,5411,,No
+102,2,2019,12,7,14:21,$25.21,Chip Transaction,323956295813092836,Maywood,IL,60153.0,4121,,No
+240,2,2019,6,5,22:04,$30.47,Online Transaction,-6458444334611773637, ONLINE,,,4784,,No

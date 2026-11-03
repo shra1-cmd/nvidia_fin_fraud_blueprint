@@ -1,0 +1,8 @@
+artifacts/
+tests/
+*.md
+.env
+.env.example
+**/__pycache__
+*.tar
+*.tar.gz

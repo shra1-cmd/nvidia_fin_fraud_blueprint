@@ -1,0 +1,32 @@
+# docker compose up -d --build     (settings come from .env; copy .env.example first)
+services:
+  fraud-api:
+    build:
+      context: .
+      args:
+        TORCH_INDEX: ${TORCH_INDEX:-cu126}
+    image: fin-fraud-api:1.0
+    container_name: fin-fraud-api
+    ports:
+      # 127.0.0.1 = reachable only from the server itself (use an SSH tunnel from outside).
+      # Change BIND_ADDR to 0.0.0.0 only after the user approves exposing it on the network.
+      - "${BIND_ADDR:-127.0.0.1}:${HOST_PORT:-8080}:8080"
+    volumes:
+      - ./artifacts:/app/artifacts:ro
+    environment:
+      DEVICE: cuda
+      XGB_DEVICE: ${XGB_DEVICE:-auto}
+      FRAUD_THRESHOLD: ${FRAUD_THRESHOLD:-}
+      MAX_BATCH: ${MAX_BATCH:-1000}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GPU_ID:?set GPU_ID in .env to ONE idle GPU index}"]
+              capabilities: [gpu]
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options: {max-size: "20m", max-file: "5"}

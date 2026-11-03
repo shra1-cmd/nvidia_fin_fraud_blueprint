@@ -1,0 +1,117 @@
+--progress is a global compose flag, better use `docker compose --progress xx build ...
+Compose can now delegate builds to bake for better performance.
+ To do so, set COMPOSE_BAKE=true.
+#0 building with "default" instance using docker driver
+
+#1 [fraud-api internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.40kB done
+#1 DONE 0.0s
+
+#2 [fraud-api internal] load metadata for docker.io/library/python:3.12.7-slim-bookworm
+#2 DONE 0.0s
+
+#3 [fraud-api internal] load .dockerignore
+#3 transferring context: 111B done
+#3 DONE 0.0s
+
+#4 [fraud-api 1/8] FROM docker.io/library/python:3.12.7-slim-bookworm
+#4 DONE 0.0s
+
+#5 [fraud-api internal] load build context
+#5 transferring context: 450B done
+#5 DONE 0.0s
+
+#6 [fraud-api 3/8] RUN pip install --index-url "https://download.pytorch.org/whl/cu126" "torch==2.7.1"
+#6 CACHED
+
+#7 [fraud-api 2/8] WORKDIR /app
+#7 CACHED
+
+#8 [fraud-api 4/8] COPY requirements.txt .
+#8 CACHED
+
+#9 [fraud-api 5/8] RUN pip install -r requirements.txt
+#9 1.837 Collecting torch-geometric==2.6.1 (from -r requirements.txt (line 3))
+#9 2.004   Downloading torch_geometric-2.6.1-py3-none-any.whl.metadata (63 kB)
+#9 2.213 Collecting xgboost==3.0.4 (from -r requirements.txt (line 4))
+#9 2.234   Downloading xgboost-3.0.4-py3-none-manylinux_2_28_x86_64.whl.metadata (2.1 kB)
+#9 2.735 Collecting numpy==1.26.4 (from -r requirements.txt (line 5))
+#9 2.756   Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+#9 3.549 Collecting pandas==2.2.3 (from -r requirements.txt (line 6))
+#9 3.573   Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (89 kB)
+#9 4.589 Collecting fastapi==0.115.12 (from -r requirements.txt (line 7))
+#9 4.610   Downloading fastapi-0.115.12-py3-none-any.whl.metadata (27 kB)
+#9 4.798 Collecting uvicorn==0.34.0 (from -r requirements.txt (line 8))
+#9 4.819   Downloading uvicorn-0.34.0-py3-none-any.whl.metadata (6.5 kB)
+#9 5.887 Collecting pydantic==2.10.6 (from -r requirements.txt (line 9))
+#9 5.908   Downloading pydantic-2.10.6-py3-none-any.whl.metadata (30 kB)
+#9 12.95 Collecting aiohttp (from torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 12.97   Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
+#9 12.98 Requirement already satisfied: fsspec in /usr/local/lib/python3.12/site-packages (from torch-geometric==2.6.1->-r requirements.txt (line 3)) (2026.7.0)
+#9 12.98 Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/site-packages (from torch-geometric==2.6.1->-r requirements.txt (line 3)) (3.1.6)
+#9 14.28 Collecting psutil>=5.8.0 (from torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 14.30   Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+#9 14.62 Collecting pyparsing (from torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 14.66   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+#9 14.89 Collecting requests (from torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 14.91   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#9 15.65 Collecting tqdm (from torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 15.67   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+#9 16.18 Requirement already satisfied: nvidia-nccl-cu12 in /usr/local/lib/python3.12/site-packages (from xgboost==3.0.4->-r requirements.txt (line 4)) (2.26.2)
+#9 17.73 Collecting scipy (from xgboost==3.0.4->-r requirements.txt (line 4))
+#9 17.75   Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#9 18.13 Collecting python-dateutil>=2.8.2 (from pandas==2.2.3->-r requirements.txt (line 6))
+#9 18.15   Downloading python_dateutil-3.0.0-py2.py3-none-any.whl.metadata (8.2 kB)
+#9 18.63 Collecting pytz>=2020.1 (from pandas==2.2.3->-r requirements.txt (line 6))
+#9 18.65   Downloading pytz-2026.5-py2.py3-none-any.whl.metadata (22 kB)
+#9 18.90 Collecting tzdata>=2022.7 (from pandas==2.2.3->-r requirements.txt (line 6))
+#9 18.92   Downloading tzdata-2026.5-py2.py3-none-any.whl.metadata (1.4 kB)
+#9 19.12 Collecting starlette<0.47.0,>=0.40.0 (from fastapi==0.115.12->-r requirements.txt (line 7))
+#9 19.14   Downloading starlette-0.46.2-py3-none-any.whl.metadata (6.2 kB)
+#9 19.29 Requirement already satisfied: typing-extensions>=4.8.0 in /usr/local/lib/python3.12/site-packages (from fastapi==0.115.12->-r requirements.txt (line 7)) (4.16.0)
+#9 19.39 Collecting click>=7.0 (from uvicorn==0.34.0->-r requirements.txt (line 8))
+#9 19.41   Downloading click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+#9 19.46 Collecting h11>=0.8 (from uvicorn==0.34.0->-r requirements.txt (line 8))
+#9 19.48   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+#9 19.56 Collecting annotated-types>=0.6.0 (from pydantic==2.10.6->-r requirements.txt (line 9))
+#9 19.58   Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
+#9 28.41 Collecting pydantic-core==2.27.2 (from pydantic==2.10.6->-r requirements.txt (line 9))
+#9 28.43   Downloading pydantic_core-2.27.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+#9 28.51 Collecting six>=1.6 (from python-dateutil>=2.8.2->pandas==2.2.3->-r requirements.txt (line 6))
+#9 28.53   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+#9 28.63 Collecting anyio<5,>=3.6.2 (from starlette<0.47.0,>=0.40.0->fastapi==0.115.12->-r requirements.txt (line 7))
+#9 28.65   Downloading anyio-4.15.1-py3-none-any.whl.metadata (4.7 kB)
+#9 28.74 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 28.76   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
+#9 28.87 Collecting aiosignal>=1.4.0 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 28.89   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+#9 28.96 Collecting attrs>=17.3.0 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 28.98   Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+#9 29.44 Collecting frozenlist>=1.1.1 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 29.47   Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+#9 33.71 Collecting multidict<8.0,>=4.5 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 33.73   Downloading multidict-7.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.2 kB)
+#9 34.79 Collecting propcache>=0.2.0 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 34.81   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
+#9 38.96 Collecting yarl<2.0,>=1.25.1 (from aiohttp->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 38.98   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
+#9 39.84 Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/site-packages (from jinja2->torch-geometric==2.6.1->-r requirements.txt (line 3)) (3.0.3)
+#9 42.44 Collecting charset_normalizer<4,>=2 (from requests->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 42.71   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+#9 43.77 Collecting idna<4,>=2.5 (from requests->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 43.79   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#9 44.05 Collecting urllib3<3,>=1.26 (from requests->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 44.07   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#9 44.21 Collecting certifi>=2023.5.7 (from requests->torch-geometric==2.6.1->-r requirements.txt (line 3))
+#9 44.24   Downloading certifi-2026.10.19-py3-none-any.whl.metadata (2.5 kB)
+#9 44.26 INFO: pip is looking at multiple versions of scipy to determine which version is compatible with other requirements. This could take a while.
+#9 44.26 Collecting scipy (from xgboost==3.0.4->-r requirements.txt (line 4))
+#9 44.28   Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#9 44.72   Downloading scipy-1.17.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#9 45.12 Downloading torch_geometric-2.6.1-py3-none-any.whl (1.1 MB)
+#9 51.54    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 173.2 kB/s eta 0:00:00
+#9 51.56 Downloading xgboost-3.0.4-py3-none-manylinux_2_28_x86_64.whl (94.9 MB)
+#9 575.0    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 94.9/94.9 MB 180.6 kB/s eta 0:00:00
+#9 575.0 Downloading numpy-1.26.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.0 MB)
+#9 CANCELED
+

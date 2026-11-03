@@ -1,0 +1,19 @@
+{
+  "model_version": "gnn-xgb-np-2026-10-07",
+  "description": "TabFormer node-prediction GNN (2x SAGEConv, hidden 64) + XGBoost on [38 raw tx features | 64-d tx embedding]",
+  "gnn": {
+    "hidden_channels": 64,
+    "num_layers": 2,
+    "conv_class": "SAGEConv",
+    "out_channels": 2
+  },
+  "feature_dims": {
+    "transaction": 38,
+    "user": 13,
+    "merchant": 24
+  },
+  "xgb_num_features": 102,
+  "n_card_values": 9,
+  "threshold": 0.25,
+  "threshold_selection": "minimise 10 x FN + FP on the held-out test graph (25803 tx): precision 0.8531, recall 0.9933, F1 0.9179, FP 357, FN 14 (at 0.50: precision 0.9254, recall 0.9751, F1 0.9496)"
+}

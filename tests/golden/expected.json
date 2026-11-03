@@ -1,0 +1,344 @@
+{
+  "_about": "Reference outputs of the notebook scripts (training container, RTX 3050) for the same inputs. single: notebooks/single_tx_inference_np.py --row <line> (one call each). batch: notebooks/predict_new_tx_np.py notebooks/new_transactions_example.csv (all 7 rows in one call, rounded to 4 dp).",
+  "tolerance": 0.002,
+  "single": [
+    {
+      "request": {
+        "transaction_id": "golden-1",
+        "user": 1,
+        "card": 1,
+        "amount": "$488.00",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "-7807051024009846392",
+        "merchant_city": "Rome",
+        "merchant_state": "Italy",
+        "zip": null,
+        "mcc": 3684,
+        "errors": null,
+        "year": 2019,
+        "month": 5,
+        "day": 11,
+        "time": "14:05"
+      },
+      "actual_label": "FRAUD",
+      "expected": {
+        "p_fraud": 0.965436,
+        "card_known": true,
+        "card_history_tx": 19,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-2",
+        "user": 1,
+        "card": 1,
+        "amount": "$14.22",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "9057735476014445185",
+        "merchant_city": "Rome",
+        "merchant_state": "Italy",
+        "zip": null,
+        "mcc": 5311,
+        "errors": null,
+        "year": 2019,
+        "month": 5,
+        "day": 11,
+        "time": "14:53"
+      },
+      "actual_label": "FRAUD",
+      "expected": {
+        "p_fraud": 0.990187,
+        "card_known": true,
+        "card_history_tx": 19,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-3",
+        "user": 44,
+        "card": 0,
+        "amount": "$76.00",
+        "use_chip": "Swipe Transaction",
+        "merchant_name": "-5162038175624867091",
+        "merchant_city": "Rome",
+        "merchant_state": "Italy",
+        "zip": null,
+        "mcc": 5541,
+        "errors": null,
+        "year": 2019,
+        "month": 6,
+        "day": 22,
+        "time": "15:21"
+      },
+      "actual_label": "FRAUD",
+      "expected": {
+        "p_fraud": 0.859603,
+        "card_known": true,
+        "card_history_tx": 25,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-4",
+        "user": 0,
+        "card": 0,
+        "amount": "$69.17",
+        "use_chip": "Swipe Transaction",
+        "merchant_name": "-1605794445852049456",
+        "merchant_city": "La Verne",
+        "merchant_state": "CA",
+        "zip": "91750.0",
+        "mcc": 5812,
+        "errors": null,
+        "year": 2019,
+        "month": 6,
+        "day": 23,
+        "time": "20:05"
+      },
+      "actual_label": "LEGIT",
+      "expected": {
+        "p_fraud": 0.00098,
+        "card_known": true,
+        "card_history_tx": 10,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-5",
+        "user": 3,
+        "card": 3,
+        "amount": "$56.25",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "7522433618679272954",
+        "merchant_city": "New York",
+        "merchant_state": "NY",
+        "zip": "10072.0",
+        "mcc": 5411,
+        "errors": null,
+        "year": 2019,
+        "month": 7,
+        "day": 22,
+        "time": "13:20"
+      },
+      "actual_label": "LEGIT",
+      "expected": {
+        "p_fraud": 8.9e-05,
+        "card_known": true,
+        "card_history_tx": 15,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-6",
+        "user": 102,
+        "card": 2,
+        "amount": "$25.21",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "323956295813092836",
+        "merchant_city": "Maywood",
+        "merchant_state": "IL",
+        "zip": "60153.0",
+        "mcc": 4121,
+        "errors": null,
+        "year": 2019,
+        "month": 12,
+        "day": 7,
+        "time": "14:21"
+      },
+      "actual_label": "LEGIT",
+      "expected": {
+        "p_fraud": 0.00614,
+        "card_known": true,
+        "card_history_tx": 11,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-7",
+        "user": 240,
+        "card": 2,
+        "amount": "$30.47",
+        "use_chip": "Online Transaction",
+        "merchant_name": "-6458444334611773637",
+        "merchant_city": " ONLINE",
+        "merchant_state": null,
+        "zip": null,
+        "mcc": 4784,
+        "errors": null,
+        "year": 2019,
+        "month": 6,
+        "day": 5,
+        "time": "22:04"
+      },
+      "actual_label": "LEGIT",
+      "expected": {
+        "p_fraud": 0.067786,
+        "card_known": true,
+        "card_history_tx": 25,
+        "unseen": {}
+      }
+    },
+    {
+      "request": {
+        "transaction_id": "golden-new-card",
+        "user": 5000,
+        "card": 0,
+        "amount": "$950.00",
+        "use_chip": "Online Transaction",
+        "merchant_name": "123456789",
+        "merchant_city": "ONLINE",
+        "zip": null,
+        "mcc": 5732,
+        "errors": "Bad PIN"
+      },
+      "actual_label": null,
+      "expected": {
+        "p_fraud": 0.86399,
+        "card_known": false,
+        "card_history_tx": 0,
+        "unseen": {
+          "Card": "45000",
+          "Merchant": "123456789"
+        }
+      }
+    }
+  ],
+  "batch": {
+    "requests": [
+      {
+        "transaction_id": "golden-1",
+        "user": 1,
+        "card": 1,
+        "amount": "$488.00",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "-7807051024009846392",
+        "merchant_city": "Rome",
+        "merchant_state": "Italy",
+        "zip": null,
+        "mcc": 3684,
+        "errors": null,
+        "year": 2019,
+        "month": 5,
+        "day": 11,
+        "time": "14:05"
+      },
+      {
+        "transaction_id": "golden-2",
+        "user": 1,
+        "card": 1,
+        "amount": "$14.22",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "9057735476014445185",
+        "merchant_city": "Rome",
+        "merchant_state": "Italy",
+        "zip": null,
+        "mcc": 5311,
+        "errors": null,
+        "year": 2019,
+        "month": 5,
+        "day": 11,
+        "time": "14:53"
+      },
+      {
+        "transaction_id": "golden-3",
+        "user": 44,
+        "card": 0,
+        "amount": "$76.00",
+        "use_chip": "Swipe Transaction",
+        "merchant_name": "-5162038175624867091",
+        "merchant_city": "Rome",
+        "merchant_state": "Italy",
+        "zip": null,
+        "mcc": 5541,
+        "errors": null,
+        "year": 2019,
+        "month": 6,
+        "day": 22,
+        "time": "15:21"
+      },
+      {
+        "transaction_id": "golden-4",
+        "user": 0,
+        "card": 0,
+        "amount": "$69.17",
+        "use_chip": "Swipe Transaction",
+        "merchant_name": "-1605794445852049456",
+        "merchant_city": "La Verne",
+        "merchant_state": "CA",
+        "zip": "91750.0",
+        "mcc": 5812,
+        "errors": null,
+        "year": 2019,
+        "month": 6,
+        "day": 23,
+        "time": "20:05"
+      },
+      {
+        "transaction_id": "golden-5",
+        "user": 3,
+        "card": 3,
+        "amount": "$56.25",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "7522433618679272954",
+        "merchant_city": "New York",
+        "merchant_state": "NY",
+        "zip": "10072.0",
+        "mcc": 5411,
+        "errors": null,
+        "year": 2019,
+        "month": 7,
+        "day": 22,
+        "time": "13:20"
+      },
+      {
+        "transaction_id": "golden-6",
+        "user": 102,
+        "card": 2,
+        "amount": "$25.21",
+        "use_chip": "Chip Transaction",
+        "merchant_name": "323956295813092836",
+        "merchant_city": "Maywood",
+        "merchant_state": "IL",
+        "zip": "60153.0",
+        "mcc": 4121,
+        "errors": null,
+        "year": 2019,
+        "month": 12,
+        "day": 7,
+        "time": "14:21"
+      },
+      {
+        "transaction_id": "golden-7",
+        "user": 240,
+        "card": 2,
+        "amount": "$30.47",
+        "use_chip": "Online Transaction",
+        "merchant_name": "-6458444334611773637",
+        "merchant_city": " ONLINE",
+        "merchant_state": null,
+        "zip": null,
+        "mcc": 4784,
+        "errors": null,
+        "year": 2019,
+        "month": 6,
+        "day": 5,
+        "time": "22:04"
+      }
+    ],
+    "p_fraud": [
+      0.9647,
+      0.9902,
+      0.8596,
+      0.001,
+      0.0001,
+      0.0061,
+      0.0678
+    ]
+  }
+}

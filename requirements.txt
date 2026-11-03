@@ -1,0 +1,9 @@
+# torch is NOT listed here: the Dockerfile installs it from the PyTorch CUDA index (TORCH_INDEX),
+# because the CUDA build must match the server's GPU and driver (see CLAUDE.md, step 2).
+torch-geometric==2.6.1   # pure-python install is enough for SAGEConv/HeteroConv
+xgboost==3.0.4           # same version that saved xgboost_model_np.json (training container)
+numpy==1.26.4            # same as the training container that pickled encoders_np.pkl
+pandas==2.2.3
+fastapi==0.115.12
+uvicorn==0.34.0
+pydantic==2.10.6
